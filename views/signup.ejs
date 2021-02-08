@@ -1,0 +1,23 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+</head>
+
+<body>
+    <h1>Signup Page</h1>
+    <hr>
+    <h3>Welcome to Sign-Up</h3>
+    <form method="POST" action="/auth/signup">
+        <input type="email" name="email" id="email" placeholder="Enter Email ...." required/><br><br>
+        <input type="text" name="username" id="username" placeholder="Enter Username ...." required/><br><br>
+        <input type="password" name="password" id="password" placeholder="Enter password ...." required/><br><br>
+        <label>Teacher</label><input type="radio" name="usertype" value="2"><br><br>
+        <label>Student</label><input type="radio" name="usertype" value="1"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

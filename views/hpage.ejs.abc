@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Classroom</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #54E100;
+        }
+        
+        ul {
+            margin-top: 2ex;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            float: right;
+        }
+        
+        ul li {
+            border: 2px;
+        }
+        
+        ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            margin-right: 7ex;
+        }
+        
+        ul li a:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="topnav">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Signup</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <h1> Welcome to test server !!!</h1>
+</body>
+
+</html>
