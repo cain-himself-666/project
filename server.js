@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     name: 'user_sid',
-    secret: 'thequickbrownfoxjumpsoverthelazydog',
+    secret: 'ye@h!$m!ledallthet!mew@spretend!ngt0be0k@y',
     saveUninitialized: false,
     resave: false,
     cookie: {
