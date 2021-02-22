@@ -22,7 +22,7 @@ route.get('/tdash', invalid, userAuth(ROLE.TEACHER), authController.tdash); //in
 route.post('/auth/login', authController.loginAuth);
 route.post('/auth/signup', authController.signup);
 route.post('/room', authController.roomCreation);
-route.get('/room/:room', authController.room);
+route.get('/room/:room', authController.room); //invalid
 route.get('/logout', authController.logout);
 
 module.exports = route;

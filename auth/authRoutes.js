@@ -31,7 +31,7 @@ exports.roomCreation = (req,res) => {
 }
 
 exports.room = (req,res) => {
-    res.render('room', {roomid: req.params.room});
+    res.render('room', {roomId: req.params.room});
 }
 
 exports.signup = (req,res) => {
