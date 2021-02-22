@@ -26,8 +26,9 @@ var User = sequelize.define("users", {
     }
 },
 {
-    hook: {
+    hooks: {
         beforeCreate: (user) => {
+            console.log(user.password);
             const salt = bcrypt.genSaltSync();
             user.password = bcrypt.hashSync(user.password, salt);
         }

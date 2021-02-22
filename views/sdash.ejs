@@ -56,7 +56,7 @@
         color: white;
         border: 1px solid white;
         background-color: #14CF00;
-        margin-left: 60rem;
+        margin-left: 50rem;
         margin-top: 20rem;
       }
       .modals .btn:hover{
@@ -166,8 +166,10 @@
           <h1><center>Create Room</center></h1>
           <span class="close">&times;</span>
           <div class="input">
-            <input type="text" id="roomid" placeholder="Enter Room ID ..."/><br><br>
-            <input type="submit" value="Join" id="join2"/>
+            <form action="/room" method="POST">
+              <input type="text" name="code" id="roomid" placeholder="Enter Room ID ..."/>
+              <input type="submit" value="Join" id="join2"/>
+            </form>
           </div>
         </div>
       </div>

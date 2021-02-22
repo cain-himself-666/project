@@ -13,7 +13,8 @@ const invalid = (req,res,next) => {
     sessionInvalidator(req,res,next);
 }
 
-route.get('/', valid, authController.hpage); //valid
+route.get('/', authController.hpage);
+route.get('/index', valid, authController.index); //valid
 route.get('/login', valid, authController.login); //valid
 route.get('/sdash', invalid, userAuth(ROLE.STUDENT), authController.sdash); //invalid
 route.get('/register', authController.registration);
@@ -21,7 +22,7 @@ route.get('/tdash', invalid, userAuth(ROLE.TEACHER), authController.tdash); //in
 route.post('/auth/login', authController.loginAuth);
 route.post('/auth/signup', authController.signup);
 route.post('/room', authController.roomCreation);
-route.get('/:room', authController.room);
-route.post('/logout', authController.logout);
+route.get('/room/:room', authController.room);
+route.get('/logout', authController.logout);
 
 module.exports = route;

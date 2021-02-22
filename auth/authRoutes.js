@@ -3,6 +3,10 @@ const { login } = require('../redirects/login');
 const { logout } = require('../redirects/logout');
 
 exports.hpage = (req,res) => {
+    res.redirect('/index');
+}
+
+exports.index = (req,res) => {
     res.render('hpage');
 }
 
@@ -23,11 +27,11 @@ exports.tdash = (req,res) => {
 }
 
 exports.roomCreation = (req,res) => {
-    res.redirect('/'+req.body.code);
+    res.redirect('/room/'+req.body.code);
 }
 
 exports.room = (req,res) => {
-    res.render('room');
+    res.render('room', {roomid: req.params.room});
 }
 
 exports.signup = (req,res) => {
