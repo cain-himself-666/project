@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +6,7 @@
         const ROOM_ID = '<%= roomId%>';
     </script>
     <title>Room</title>
+    <script src="/socket.io/socket.io.js"></script>
     <style>
         #video-grid{
             display: grid;
@@ -19,10 +19,13 @@
             object-fit: cover;
         }
     </style>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="room.js"></script>
 </head>
 <body>
     <div id="video-grid"></div>
 </body>
+<script src="/room.js"></script>
 </html>
+
+<!--
+
+-->
