@@ -1,0 +1,229 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        font-family: helvetica,arial,sans-serif;
+      }
+      .nav-bar{
+        position: fixed;
+        left: 0;
+        width: 250px;
+        height: 100%;
+        background-color: #0673BA;
+      }
+      .nav-bar header{
+          font-size: 25px;
+          color: white;
+          line-height: 70px;
+          text-align: center;
+          user-select: none;
+          margin-top: 20px;
+          margin-bottom: 20px;
+      }
+      .nav-bar ul li i{
+        margin-right: 15px;
+      }
+      .nav-bar ul li a{
+        display: block;
+        font-size: 18px;
+        line-height: 25px;
+        color: white;
+        padding: 40px;
+        box-sizing: border-box;
+        border: 1px solid #4EA1D7;
+        transition: 0.4s;
+      }
+      .nav-bar ul a:hover{
+        padding-left: 50px;
+      }
+      #menu{
+        display:none;
+      }
+      .menu-bar i{
+        position: absolute;
+      }
+      .modals .btn{
+        border-radius: 10px;
+        padding: 1rem;
+        color: white;
+        border: 1px solid white;
+        background-color: #0673BA;
+      }
+      .modals .btn:hover{
+        background-color: #2B74E9;
+        cursor: pointer;
+      }
+      .modals #join{
+        margin-top: 20rem;
+      }
+      .modals #create{
+        margin-left: 45rem;
+        margin-top: 20rem;
+      }
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%; /* Could be more or less, depending on screen size */
+      }
+      .modal-content h1{
+        color: #0673BA;
+        margin-bottom: 2rem;
+      }
+      .modal-content .input{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .modal-content .input #create2{
+        border-radius: 13px;
+        margin-left: 2rem;
+        padding: 0.7rem;
+        color: white;
+        border: 1px solid white;
+        background-color: #0673BA;
+      }
+      .modal-content .input #create2:hover{
+        background-color: #2B74E9;
+        cursor: pointer;
+      }
+      .modal-content .input #roomid{
+        border-radius: 8px;
+        border: 1px solid #525760;
+        padding: 0.4rem;
+      }
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      @media screen and (max-width: 850px) {
+        .nav-bar ul li a span{
+          display: none;
+        }
+        .nav-bar{
+          width: 100px;
+        }
+        .nav-bar li a i {
+            display: block;
+            text-align: center;
+            margin-left: 0;
+            line-height: 80px;
+            font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <input type="checkbox" id="menu"/>
+    <label for="menu" class="menu-bar">
+        <i class="fa fa-bars" style="font-size: 25px;color: blue"></i>
+    </label>
+    <div class="nav-bar">
+      <header><i class="fa fa-user-circle-o" style="margin-right: 10px;"></i>Teacher Dash</header>
+      <ul>
+        <li><a href="/auth/users"><i class="fa fa-id-card"></i><span>Users</span></a></li>
+        <li><a href="/auth/registration"><i class="fa fa-user-plus"></i><span>Register Users</span></a></li>
+        <li><a href="/auth/logs"><i class="fa fa-sliders"></i><span>Logs</span></a></li>
+        <li><a href="/logout"><i class="fa fa-power-off"></i><span>Logout</span></a></li>
+      </ul>
+    </div>
+    <!-- <h1><center> Welcome to E-Classroom Portal </center></h1> -->
+    <div class="modals">
+      <button id="create" class="btn">Create Room</button>
+      <button id="join" class="btn">Join Room</button>
+      <!-- The Modal -->
+      <div id="modalc" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <h1><center>Create Room</center></h1>
+          <span class="close">&times;</span>
+          <div class="input">
+            <form action="/room" method="POST">
+              <input type="text" name="code" id="roomid" placeholder="Enter Room ID ..."/>
+              <input type="submit" value="Create" id="create2"/>
+            </form>
+          </div>
+        </div>
+
+      </div>
+      <div id="modalj" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <h1><center>Join Room</center></h1>
+          <span class="close">&times;</span>
+          <div class="input">
+          <form action="/room" method="POST">
+            <input type="text" name="code" id="roomid" placeholder="Enter Room ID ..."/>
+            <input type="submit" value="Join" id="create2"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </body>
+  <script>
+    var modalc = document.getElementById("modalc");
+    var modalj = document.getElementById("modalj");
+    var btn1 = document.getElementById("create");
+    var btn2 = document.getElementById("join");
+    var span1 = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close")[1];
+
+    btn1.onclick = function() {
+      modalc.style.display = "block";
+    }
+    btn2.onclick = function() {
+      modalj.style.display = "block";
+    }
+    span1.onclick = function(event) {
+      modalc.style.display = "none";
+    }
+    span2.onclick = function(event) {
+      modalj.style.display = "none";
+    }
+    window.onclick = function(event) {
+    if (event.target == modalc) {
+      modalc.style.display = "none";
+    }
+    if(event.target == modalj){
+      modalj.style.display = "none";
+    }
+    }
+  </script>
+</html>
